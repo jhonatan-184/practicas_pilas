@@ -6,6 +6,7 @@ public class metodos {
 
     public Stack<ObjpaginaWeb> visitar(Stack<ObjpaginaWeb> pila, Scanner sc) {
         boolean continuar = true;
+        metodos m = new metodos();
         while (continuar) {
             ObjpaginaWeb o = new ObjpaginaWeb();
             System.out.println("Ingrese la url de la pagina que dese visitar: ");
@@ -16,7 +17,7 @@ public class metodos {
             String FechaAcceso = sc.next();
             pila.push(o);
             System.out.println("¿desea visitar mas paginas? si 1, no 2 ");
-            int opt = sc.nextInt();
+            int opt = m.validar(sc);
             System.out.println("============//======//=========");
 
             o.setURL(URL);
@@ -33,34 +34,72 @@ public class metodos {
     }
 
     public void actual(Stack<ObjpaginaWeb> pila){
-        ObjpaginaWeb o = pila.peek();
-        System.out.println("la pagina actual es:\n");
-        System.out.println("URL: " + o.getURL());
-        System.out.println("Titulo: " + o.getTitulo());
-        System.out.println("Fecha de Aceso: " + o.getFechaAcceso());
+        ObjpaginaWeb o = new ObjpaginaWeb();
+        if (!pila.isEmpty()) {
+            o= pila.peek();
+            System.out.println("la pagina actual es:\n");
+            System.out.println("URL: " + o.getURL());
+            System.out.println("Titulo: " + o.getTitulo());
+            System.out.println("Fecha de Aceso: " + o.getFechaAcceso());
+            
+        }
+        if (pila.isEmpty()) {
+            System.out.println("no has visitado paginas");
+        }
+
+        
     }
 
     public void retroceder(Stack<ObjpaginaWeb> pila){
-        
         ObjpaginaWeb o = new ObjpaginaWeb();
-        o = pila.pop();
-        o=pila.peek();
+        if (pila.size() <= 1) {
+            System.out.println("ya no hay mas a donde retroceder");
+            return ;
+        } 
+        
+        
+            
+            pila.pop();
+            o=pila.peek();
 
 
-        System.out.println("ahora esta en:\n");
-        System.out.println("URL: " + o.getURL());
-        System.out.println("Titulo: " + o.getTitulo());
-        System.out.println("Fecha de Aceso: " + o.getFechaAcceso());
+            System.out.println("ahora esta en:\n");
+            System.out.println("URL: " + o.getURL());
+            System.out.println("Titulo: " + o.getTitulo());
+            System.out.println("Fecha de Aceso: " + o.getFechaAcceso());
+        
+
+        
 
     }
 
      public void Historial(Stack<ObjpaginaWeb> pila) {
-        for (ObjpaginaWeb o : pila) {
-            System.out.println("URL: " + o.getURL());
-            System.out.println("Titulo: " + o.getTitulo());
-            System.out.println("Fecha de Aceso: " + o.getFechaAcceso());
-            System.out.println("------------------\n");
+
+        if(!pila.isEmpty()){
+            for (ObjpaginaWeb o : pila) {
+                System.out.println("URL: " + o.getURL());
+                System.out.println("Titulo: " + o.getTitulo());
+                System.out.println("Fecha de Aceso: " + o.getFechaAcceso());
+                System.out.println("------------------\n");
+            }
+
+            
         }
+
+        if (pila.isEmpty()) {
+                System.out.println("no has visitado paginas");
+            }
+
+        
+    }
+
+    public int validar(Scanner sc){
+        while (!sc.hasNextInt()) {
+            System.out.println("Que sea un numero entero de los que se te estan indicando");
+            sc.next();
+            
+        }
+        return sc.nextInt();
     }
     
 }

@@ -15,7 +15,7 @@ public class menu {
             System.out.println("3- Retroceder");
             System.out.println("4- Ver Historial");
             System.out.println("5- Salir");
-            int opt = sc.nextInt();
+            int opt = m.validar(sc);
             switch (opt) {
                 case 1:
                     m.visitar(pila, sc);
