@@ -9,7 +9,7 @@ public class metodos {
         metodos m = new metodos();
         while (continuar) {
             ObjpaginaWeb o = new ObjpaginaWeb();
-            System.out.println("Ingrese la url de la pagina que dese visitar: ");
+            System.out.println("\nIngrese la url de la pagina que dese visitar: ");
             String URL = sc.next();
             System.out.println("Ingrese el titulo de la pagina: ");
             String Titulo = sc.next();
@@ -37,14 +37,14 @@ public class metodos {
         ObjpaginaWeb o = new ObjpaginaWeb();
         if (!pila.isEmpty()) {
             o= pila.peek();
-            System.out.println("la pagina actual es:\n");
+            System.out.println("\nla pagina actual es:\n");
             System.out.println("URL: " + o.getURL());
             System.out.println("Titulo: " + o.getTitulo());
             System.out.println("Fecha de Aceso: " + o.getFechaAcceso());
             
         }
         if (pila.isEmpty()) {
-            System.out.println("no has visitado paginas");
+            System.out.println("\nno has visitado paginas");
         }
 
         
@@ -53,7 +53,7 @@ public class metodos {
     public void retroceder(Stack<ObjpaginaWeb> pila){
         ObjpaginaWeb o = new ObjpaginaWeb();
         if (pila.size() <= 1) {
-            System.out.println("ya no hay mas a donde retroceder");
+            System.out.println("\nya no hay mas a donde retroceder");
             return ;
         } 
         
@@ -63,7 +63,7 @@ public class metodos {
             o=pila.peek();
 
 
-            System.out.println("ahora esta en:\n");
+            System.out.println("\nahora esta en:\n");
             System.out.println("URL: " + o.getURL());
             System.out.println("Titulo: " + o.getTitulo());
             System.out.println("Fecha de Aceso: " + o.getFechaAcceso());
@@ -77,7 +77,7 @@ public class metodos {
 
         if(!pila.isEmpty()){
             for (ObjpaginaWeb o : pila) {
-                System.out.println("URL: " + o.getURL());
+                System.out.println("\nURL: " + o.getURL());
                 System.out.println("Titulo: " + o.getTitulo());
                 System.out.println("Fecha de Aceso: " + o.getFechaAcceso());
                 System.out.println("------------------\n");
@@ -87,7 +87,7 @@ public class metodos {
         }
 
         if (pila.isEmpty()) {
-                System.out.println("no has visitado paginas");
+                System.out.println("\nno has visitado paginas");
             }
 
         
