@@ -26,4 +26,17 @@ public class metodos {
         return pila;
 
     }
+
+    public void retroceder(Stack<ObjpaginaWeb> pila){
+        pila.pop();
+        pila.peek();
+        ObjpaginaWeb o = new ObjpaginaWeb();
+
+        System.out.println("ahora esta en:\n");
+        System.out.println("URL: " + o.getURL());
+        System.out.println("Titulo: " + o.getTitulo());
+        System.out.println("Fecha de Aceso: " + o.getFechaAcceso());
+
+    }
+    
 }
